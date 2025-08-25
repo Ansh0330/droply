@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import { signInSchema } from "@/schemas/signinSchema";
 import { useSignIn } from "@clerk/nextjs";
