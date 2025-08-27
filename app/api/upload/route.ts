@@ -1,7 +1,6 @@
 import { db } from "@/lib/db";
 import { files } from "@/lib/db/schema";
 import { auth } from "@clerk/nextjs/server";
-import { image } from "@heroui/theme";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
