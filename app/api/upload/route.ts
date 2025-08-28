@@ -3,13 +3,14 @@ import { files } from "@/lib/db/schema";
 import { auth } from "@clerk/nextjs/server";
 import { NextRequest, NextResponse } from "next/server";
 
+//Is vale upload se apne DB me imagekit ki url add ho rahi hai 
 export async function POST(request: NextRequest) {
   try {
     const { userId } = await auth();
     if (!userId) {
       return NextResponse.json(
         {
-          error: "Unauthorized",
+          error: "Access Denied , Unauthorized",
         },
         { status: 401 }
       );
@@ -22,7 +23,7 @@ export async function POST(request: NextRequest) {
     if (bodyUserId !== userId) {
       return NextResponse.json(
         {
-          error: "Unauthorized",
+          error: "Access Denied , Unauthorized",
         },
         { status: 401 }
       );

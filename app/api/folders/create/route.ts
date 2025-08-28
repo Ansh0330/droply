@@ -11,7 +11,7 @@ export async function POST(request: NextRequest) {
     if (!userId) {
       return NextResponse.json(
         {
-          error: "Unauthorized",
+          error: "Access Denied , Unauthorized",
         },
         { status: 401 }
       );
@@ -34,7 +34,7 @@ export async function POST(request: NextRequest) {
         {
           error: "Folder name is required",
         },
-        { status: 400 }
+        { status: 404 }
       );
     }
 

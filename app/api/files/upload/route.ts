@@ -60,16 +60,15 @@ export async function POST(request: NextRequest) {
             eq(files.isFolder, true)
           )
         );
-    }
-
-    // totally optional based on your flow
-    if (!parentId) {
-      return NextResponse.json(
-        {
-          error: "Parent folder not found",
-        },
-        { status: 404 }
-      );
+      // totally optional based on your flow
+      if (!parentFolder) {
+        return NextResponse.json(
+          {
+            error: "Parent folder not found",
+          },
+          { status: 404 }
+        );
+      }
     }
 
     if (!file.type.startsWith("image/") && file.type !== "application/pdf") {

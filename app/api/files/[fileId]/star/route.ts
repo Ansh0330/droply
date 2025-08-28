@@ -52,10 +52,12 @@ export async function PATCH(
       .returning();
     const updatedFile = updatedFiles[0];
 
+    const action = updatedFile.isStarred ? "starred" : "unstarred";
+
     return NextResponse.json(
       {
         success: true,
-        message: "Files updated successfully",
+        message: `File ${action} successfully`,
         updatedFile,
       },
       {

@@ -21,14 +21,12 @@ export async function GET(request: NextRequest) {
     const parentId = searchParams.get("parentId");
 
     if (!queryUserId || queryUserId !== userId) {
-      if (!userId) {
-        return NextResponse.json(
-          {
-            error: "Access Denied , Unauthorized",
-          },
-          { status: 401 }
-        );
-      }
+      return NextResponse.json(
+        {
+          error: "Access Denied , Unauthorized",
+        },
+        { status: 401 }
+      );
     }
 
     // fetch files from database

@@ -1,7 +1,6 @@
 import { auth } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 import ImageKit from "imagekit";
-import { error } from "console";
 
 // SDK initialization
 
@@ -17,7 +16,7 @@ export async function GET() {
     if (!userId) {
       return NextResponse.json(
         {
-          error: "Unauthorized",
+          error: "Access Denied , Unauthorized",
         },
         { status: 401 }
       );
