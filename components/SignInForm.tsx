@@ -1,17 +1,18 @@
 "use client";
-import React, { useState } from "react";
-import { signInSchema } from "@/schemas/signinSchema";
-import { useSignIn } from "@clerk/nextjs";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useRouter } from "next/navigation";
+
+import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useSignIn } from "@clerk/nextjs";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { z } from "zod";
 import { Button } from "@heroui/button";
 import { Input } from "@heroui/input";
 import { Card, CardBody, CardHeader, CardFooter } from "@heroui/card";
 import { Divider } from "@heroui/divider";
 import { Mail, Lock, AlertCircle, Eye, EyeOff } from "lucide-react";
+import { signInSchema } from "@/schemas/signinSchema";
 
 export default function SignInForm() {
   const router = useRouter();
@@ -19,11 +20,12 @@ export default function SignInForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [authError, setAuthError] = useState<string | null>(null);
   const [showPassword, setShowPassword] = useState(false);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
+  } = useForm<z.infer<typeof signInSchema>>({
     resolver: zodResolver(signInSchema),
     defaultValues: {
       identifier: "",
@@ -44,22 +46,23 @@ export default function SignInForm() {
       });
 
       if (result.status === "complete") {
-        await setActive({
-          session: result.createdSessionId,
-        });
+        await setActive({ session: result.createdSessionId });
         router.push("/dashboard");
       } else {
-        console.log("Error in signing in the user", result);
-        setAuthError("Sign In error");
+        console.error("Sign-in incomplete:", result);
+        setAuthError("Sign-in could not be completed. Please try again.");
       }
     } catch (error: any) {
+      console.error("Sign-in error:", error);
       setAuthError(
-        error.errors?.[0]?.message || "An error occurred during sign in process"
+        error.errors?.[0]?.message ||
+          "An error occurred during sign-in. Please try again."
       );
     } finally {
       setIsSubmitting(false);
     }
   };
+
   return (
     <Card className="w-full max-w-md border border-default-200 bg-default-50 shadow-xl">
       <CardHeader className="flex flex-col gap-1 items-center pb-2">
