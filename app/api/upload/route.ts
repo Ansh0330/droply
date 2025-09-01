@@ -62,10 +62,11 @@ export async function POST(request: NextRequest) {
         status: 201,
       }
     );
-  } catch (error) {
+    // eslint-disable-next-line
+  } catch (error : any) {
     return NextResponse.json(
       {
-        error: "Failed to save file to the database",
+        error: error.message || "Failed to save file to the database",
       },
       { status: 500 }
     );

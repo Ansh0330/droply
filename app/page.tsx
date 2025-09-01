@@ -5,7 +5,6 @@ import Link from "next/link";
 import { Card, CardBody } from "@heroui/card";
 import {
   CloudUpload,
-  Shield,
   Folder,
   Image as ImageIcon,
   ArrowRight,
@@ -132,7 +131,7 @@ export default function page() {
                     color="primary"
                     endContent={<ArrowRight className="h-4 w-4" />}
                   >
-                    Let's Go
+                    Let&apos;s Go
                   </Button>
                 </Link>
               </div>

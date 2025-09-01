@@ -4,7 +4,7 @@ import ImageKit from "imagekit";
 
 // SDK initialization
 
-var imagekit = new ImageKit({
+const imagekit = new ImageKit({
   publicKey: process.env.NEXT_PUBLIC_IMAGEKIT_PUBLIC_KEY || "",
   privateKey: process.env.IMAGEKIT_PRIVATE_KEY || "",
   urlEndpoint: process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT || "",
@@ -30,10 +30,11 @@ export async function GET() {
       },
       { status: 200 }
     );
-  } catch (error) {
+    // eslint-disable-next-line
+  } catch (error: any) {
     return NextResponse.json(
       {
-        error: "Failed to generate authentication parameters",
+        error: error.message || "Failed to generate authentication parameters",
       },
       { status: 500 }
     );

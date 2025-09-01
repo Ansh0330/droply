@@ -61,6 +61,7 @@ export default function SignUpForm() {
 
       await signUp.prepareEmailAddressVerification({ strategy: "email_code" });
       setVerifying(true);
+      // eslint-disable-next-line
     } catch (error: any) {
       console.error("Sign-up error:", error);
       setAuthError(
@@ -95,6 +96,7 @@ export default function SignUpForm() {
           "Verification could not be completed. Please try again."
         );
       }
+      // eslint-disable-next-line
     } catch (error: any) {
       console.error("Verification error:", error);
       setVerificationError(
@@ -114,7 +116,7 @@ export default function SignUpForm() {
             Verify Your Email
           </h1>
           <p className="text-default-500 text-center">
-            We've sent a verification code to your email
+            We&apos;ve sent a verification code to your email
           </p>
         </CardHeader>
 
@@ -159,7 +161,7 @@ export default function SignUpForm() {
 
           <div className="mt-6 text-center">
             <p className="text-sm text-default-500">
-              Didn't receive a code?{" "}
+              Didn&apos;t receive a code?{" "}
               <button
                 onClick={async () => {
                   if (signUp) {
