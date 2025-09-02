@@ -1,36 +1,127 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# droply - Dropbox Clone with Next.js
 
-First, run the development server:
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+
+![Next.js](https://img.shields.io/badge/Next.js-black?style=for-the-badge&logo=next.js&logoColor=white)
+
+![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
+
+![Axios](https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white)
+
+---
+## About
+
+**droply** is a Dropbox-inspired **cloud file storage** web application built with **Next.js** and **TypeScript**. It allows you to upload, star, trash, navigate folders, and download your files with a sleek and modern UI.
+
+This project is a practical example of building a full-fledged file management system on the web.
+
+---
+
+
+## Features
+
+- Upload and manage files and folders
+- Star important files for quick access
+- Trash and permanently delete files
+- Folder navigation with breadcrumb path
+- Optimized image viewing and downloads
+- Responsive and accessible UI components
+
+
+## Tech Stack
+
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)  
+![Next.js](https://img.shields.io/badge/Next.js-black?style=flat-square&logo=next.js&logoColor=white)  
+![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black)  
+![Axios](https://img.shields.io/badge/Axios-5A29E4?style=flat-square&logo=axios&logoColor=white)  
+![date-fns](https://img.shields.io/badge/date-fns-2F9CF9?style=flat-square)  
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=vercel&logoColor=white)
+
+---
+
+
+## Run Locally
+
+Clone the project
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+  git clone  https://github.com/Ansh0330/droply.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Go to the project directory
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+  cd droply
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Install dependencies
 
-## Learn More
+```bash
+  npm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+Start the development server
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+  npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Open [http://localhost:3000](http://localhost:3000) to view the app.
 
-## Deploy on Vercel
+---
+## Environment Variables
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+To run this project, you will need to add the following environment variables to your .env file
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+`DATABASE_URL` = yourdatabaaseurl
+
+#### Clerk Authentication
+`NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY`= 
+`CLERK_SECRET_KEY`=
+
+#### ImageKit
+`NEXT_PUBLIC_IMAGEKIT_PUBLIC_KEY` =
+`IMAGEKIT_PRIVATE_KEY` = 
+`NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT` =
+
+
+#### Clerk URLs
+`NEXT_PUBLIC_CLERK_SIGN_IN_URL`= /sign-in
+`NEXT_PUBLIC_CLERK_SIGN_UP_URL`= /sign-up
+`NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL`= /dashboard
+`NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL`= /dashboard
+
+#### Fallback URLs
+`NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL`= /
+`NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL`= /
+
+#### App URLs
+`NEXT_PUBLIC_APP_URL`= http://localhost:3000
+
+
+
+
+
+## Acknowledgements
+
+This project was built with the inspiration and guidance of **Hitesh Chaudhary Sir** from his excellent YouTube lectures on Next.js and full-stack web development.
+
+Thank you for the invaluable learning resources!
+
+---
+
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+
+## Demo
+
+Insert gif or link to demo
+
